@@ -2,11 +2,21 @@
   "name": "@bamita/common",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./build/index.js",
+  "type": "./build/index.d.ts",
+  "files": [
+    "./build/**/*"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "del ./build/*",
+    "build": "yarn clean && tsc",
+    "publish": "yarn build && npm publish --access public"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "del-cli": "^3.0.1",
+    "typescript": "^4.0.2"
+  }
 }
